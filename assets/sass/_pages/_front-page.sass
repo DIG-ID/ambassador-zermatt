@@ -1,0 +1,75 @@
+.newintro
+  width: 100%
+  display: block
+  position: relative
+
+  .row
+    display: block
+    padding: 0
+    width: 83%
+    margin: 0 auto
+    overflow: hidden
+    position: relative
+
+.newintro-title
+  color: #807B73
+  font-family: "Playfair Display"
+  margin-bottom: 24px
+  font-size: 32px
+  line-height: 48px
+  font-weight: bold
+  hyphens: auto
+
+.newintro-text
+  text-align: center
+  max-width: 682px
+  margin: 0 auto
+  padding: 100px 0
+
+.newintro-items .intro-a-blocks
+  width: 23%
+  height: 248px
+  float: left
+  display: block
+  text-align: center
+  padding: 130px 0
+  color: #FFFFFF
+  font-family: "Work Sans"
+  font-size: 28px
+  line-height: 28px
+  background-repeat: no-repeat
+  background-position: center
+
+.newintro-items .intro-a-blocks::before
+  content: ""
+  position: absolute
+  top: 0
+  left: 50%
+  width: 100%
+  height: 100%
+  background: transparent
+  transform: translateX(-50%)
+  max-width: 334px
+
+.intro-a-blocks span
+  z-index: 8
+  position: relative
+
+.newintro-items > a:not(:last-child)
+  .intro-a-blocks
+    margin-right: 15px
+
+.newintro-items .intro-a-blocks > span
+  visibility: visible
+
+.newintro-items .intro-a-blocks::before
+  background: rgba(0,0,0,0.5)
+
+.newintro-items .intro-a-blocks::before
+  transition: 0.2s
+
+@media screen and (max-width: 996px)
+  .newintro-items .intro-a-blocks
+    width: 100%
+    max-width: none
+    margin-bottom: 20px

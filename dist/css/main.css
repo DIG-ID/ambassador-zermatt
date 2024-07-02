@@ -1299,6 +1299,93 @@ html.fixed header .main-header {
   background-size: initial;
 }
 
+.newintro {
+  width: 100%;
+  display: block;
+  position: relative;
+}
+.newintro .row {
+  display: block;
+  padding: 0;
+  width: 83%;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.newintro-title {
+  color: #807B73;
+  font-family: "Playfair Display";
+  margin-bottom: 24px;
+  font-size: 32px;
+  line-height: 48px;
+  font-weight: bold;
+  -webkit-hyphens: auto;
+          hyphens: auto;
+}
+
+.newintro-text {
+  text-align: center;
+  max-width: 682px;
+  margin: 0 auto;
+  padding: 100px 0;
+}
+
+.newintro-items .intro-a-blocks {
+  width: 23%;
+  height: 248px;
+  float: left;
+  display: block;
+  text-align: center;
+  padding: 130px 0;
+  color: #FFFFFF;
+  font-family: "Work Sans";
+  font-size: 28px;
+  line-height: 28px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.newintro-items .intro-a-blocks::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  transform: translateX(-50%);
+  max-width: 334px;
+}
+
+.intro-a-blocks span {
+  z-index: 8;
+  position: relative;
+}
+
+.newintro-items > a:not(:last-child) .intro-a-blocks {
+  margin-right: 15px;
+}
+
+.newintro-items .intro-a-blocks > span {
+  visibility: visible;
+}
+
+.newintro-items .intro-a-blocks::before {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.newintro-items .intro-a-blocks::before {
+  transition: 0.2s;
+}
+
+@media screen and (max-width: 996px) {
+  .newintro-items .intro-a-blocks {
+    width: 100%;
+    max-width: none;
+    margin-bottom: 20px;
+  }
+}
 .section-page-links .page-link .page-link-content {
   display: flex;
   flex-direction: column;
@@ -1744,6 +1831,84 @@ html.fixed header .main-header {
     margin-right: 24px;
   }
 }
+#sb-container-bar {
+  max-width: 1280px;
+  width: 100%;
+  padding: 0 84px;
+  margin: 0 auto;
+}
+#sb-container-bar input {
+  transition: 0.3s all ease-in-out;
+}
+#sb-container-bar input:hover {
+  transform: scale(1.04);
+}
+#sb-container-bar .sb__form-field-label {
+  visibility: hidden;
+}
+#sb-container-bar .sb-screen-m .sb__guests-rooms {
+  padding-left: 0 !important;
+  padding-right: 14px !important;
+}
+#sb-container-bar .sb__footer {
+  visibility: hidden;
+}
+
+#sb-container-bar input,
+#sb-container-bar .sb-custom-field-bg-color {
+  border-radius: 0 !important;
+}
+
+#sb-container-bar .sb__guests-room select > option {
+  background: #141414;
+}
+
+#sb-container-bar_sb-container_sb__form-field--checkin {
+  margin-right: 11px;
+}
+
+#sb-container-bar_sb-container_sb__form-field--checkin,
+#sb-container-bar_sb-container_sb__form-field--checkout {
+  width: 48% !important;
+}
+
+#covid-button {
+  transition: 0.3s all ease-in-out;
+}
+#covid-button:hover {
+  cursor: pointer;
+  background: #ffffff !important;
+  color: #9e0e0e !important;
+}
+#covid-button.opened {
+  background: #9e0e0e !important;
+  color: #ffffff !important;
+}
+#covid-button:focus {
+  border: none;
+  outline: 0;
+}
+#covid-button a {
+  color: #9e0e0e;
+}
+#covid-button a:hover {
+  color: #ffffff;
+}
+
+#covid-text {
+  display: none;
+}
+#covid-text ul {
+  list-style-type: square;
+  padding-left: 17px;
+  margin-left: 0;
+}
+#covid-text ul > li {
+  font-size: 14px;
+  line-height: 18px;
+  color: #ffffff;
+}
+
 .footer-digid {
   background-color: #fff;
   height: auto !important;

@@ -10,7 +10,7 @@ while ( have_posts() ) :
 
 	// Content Composer.
 	global $entity_fields;
-	ergopix_content_composer( $entity_fields );
+	digid_content_composer( $entity_fields );
 
 endwhile;
 

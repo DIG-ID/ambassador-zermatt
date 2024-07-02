@@ -3,7 +3,7 @@
 /**
  * Page Content Composer.
  */
-function ergopix_content_composer( $entity_fields ) {
+function digid_content_composer( $entity_fields ) {
 
 	// Do we have Page Content?
 	if ( is_array( $entity_fields ) && array_key_exists( 'page_content', $entity_fields ) && is_array( $entity_fields['page_content'] ) && count( $entity_fields['page_content'] ) > 0 ) :

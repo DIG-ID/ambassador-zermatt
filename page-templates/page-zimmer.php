@@ -3,7 +3,7 @@
  * Template Name: Zimmer Template
  */
 
-get_header( 'digid' );
+get_header();
 if ( have_posts() ) :
 	while ( have_posts() ) :
 		the_post();
@@ -13,4 +13,4 @@ if ( have_posts() ) :
 		get_template_part( 'template-parts/modules/page-links' );
 	endwhile;
 endif;
-get_footer( 'digid' );
+get_footer();

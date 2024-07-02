@@ -1,3 +1,4 @@
+<?php $lang = $args['lang']; ?>
 <div class="header-menu-container">
 	<div class="header-menu-content">
 		<ul>

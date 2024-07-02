@@ -15,14 +15,16 @@ __webpack_require__.r(__webpack_exports__);
 document.addEventListener("DOMContentLoaded", function () {
   //wait until images, links, fonts, stylesheets, and js is loaded
   window.addEventListener("load", function () {
-    // Image Background Parallax Scroll
-    var parallax = document.querySelector('.section-page-header');
+    if (document.querySelector('.section-page-header')) {
+      // Image Background Parallax Scroll
+      var parallax = document.querySelector('.section-page-header');
 
-    // Parallax Effect for header
-    window.addEventListener("scroll", function () {
-      var offset = window.scrollY;
-      parallax.style.backgroundPositionY = offset * 0.7 + "px";
-    });
+      // Parallax Effect for header
+      window.addEventListener("scroll", function () {
+        var offset = window.scrollY;
+        parallax.style.backgroundPositionY = offset * 0.7 + "px";
+      });
+    }
   }, false);
 });
 

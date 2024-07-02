@@ -117,7 +117,7 @@ while ( have_posts() ) :
 	</div><!-- .container .articles -->
 	<?php
 	// Content Composer.
-	ergopix_home_content_composer( $entity_fields );
+	digid_home_content_composer( $entity_fields );
 
 	// Page Bottom.
 	if ( array_key_exists( 'page_bottom', $entity_fields ) && is_array( $entity_fields['page_bottom'] ) && count( $entity_fields['page_bottom'] ) > 0 ) :

@@ -3,7 +3,7 @@
 /**
  * Home content composer.
  */
-function ergopix_home_content_composer( $entity_fields ) {
+function digid_home_content_composer( $entity_fields ) {
 
 	// print_rgopix($entity_fields);
 

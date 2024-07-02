@@ -4,14 +4,11 @@
  */
 
 get_header();
-
 while ( have_posts() ) :
 	the_post();
-
 	// Content Composer.
 	global $entity_fields;
-	ergopix_content_composer( $entity_fields );
-
+	digid_content_composer( $entity_fields );
 	?>
 	<div class="wrapper">
 		<div class="section">
@@ -33,5 +30,4 @@ while ( have_posts() ) :
 	</div>
 	<?php
 endwhile;
-
 get_footer();
