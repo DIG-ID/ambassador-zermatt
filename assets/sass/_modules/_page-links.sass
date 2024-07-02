@@ -1,0 +1,88 @@
+$mytransition: all 500ms ease-in-out
+
+.section-page-links
+  .page-link
+    .page-link-content
+      display: flex
+      flex-direction: column
+      justify-content: center
+      align-items: center
+      min-height: 545px
+      position: relative
+      background-color: rgba(255, 255, 255, 0)
+      mix-blend-mode: initial
+      transition: $mytransition
+      &::after
+        content: ''
+        display: block
+        position: absolute
+        left: 0
+        top: 0
+        right: 0
+        bottom: 0
+        border: 1px solid rgba(255, 255, 255, 0.4)
+        margin: 24px
+        transition: $mytransition
+      .page-link-button
+        background-color: #fff
+        color: $main-red
+        font-family: Playfair Display
+        font-size: 32px
+        font-style: normal
+        font-weight: 600
+        line-height: 89.978%
+        display: flex
+        align-items: center
+        justify-content: center
+        position: relative
+        margin: 0
+        padding: 16px 24px
+        transition: $mytransition
+        &::before
+          content: ''
+          display: block
+          position: absolute
+          left: 0
+          top: 0
+          right: 0
+          bottom: 0
+          border: 1px solid rgba(255, 255, 255, 0.4)
+          margin: -24px
+          transition: $mytransition
+        svg
+          margin-left: 16px
+          transition: $mytransition
+          path
+            transition: $mytransition
+      &:hover
+        background-color: rgba(255, 255, 255, 0.8)
+        //filter: blur(4px)
+        &::after
+          border: 1px solid $main-red
+          margin: 32px
+        .page-link-button
+          background-color: $main-red
+          color: #fff
+          &::before
+            border: 1px solid $main-red
+            margin: -16px
+          svg
+            path
+              stroke: #fff
+              fill: #fff
+
+@media (max-width: $lg)
+  .section-page-links
+    margin-top: 64px
+
+@media (max-width: $md)
+  .section-page-links
+    .page-link
+      .page-link-content
+        min-height: 400px
+        &::after
+          margin: 16px
+        .page-link-button
+          font-size: 24px
+          &::before
+            margin: -16px

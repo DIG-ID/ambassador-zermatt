@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="104px" height="104px" viewBox="0 0 104 104" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>arrow-button-prev-small</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="52" cy="52" r="20"></circle>
+        <filter x="-100.0%" y="-80.0%" width="300.0%" height="300.0%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="8" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="12" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.14 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="arrow-button-prev-small" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Oval-2" transform="translate(52.000000, 52.000000) scale(-1, 1) translate(-52.000000, -52.000000) ">
+            <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+            <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+        </g>
+        <path d="M59.5147186,48 L49.5147186,48 L49.5147186,58 L47.5147186,58 L47.5147186,46 L59.5147186,46 L59.5147186,48 Z" id="Combined-Shape" fill="#1A1A1A" transform="translate(53.514719, 52.000000) scale(-1, 1) rotate(-225.000000) translate(-53.514719, -52.000000) "></path>
+    </g>
+</svg>

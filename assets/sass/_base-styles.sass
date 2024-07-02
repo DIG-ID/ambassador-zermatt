@@ -1,0 +1,109 @@
+$main-red: #9E0E0E
+$main-black: #1A1A1A
+$medium-grey: #A8A398
+
+$sm: 576px
+$md: 768px
+$lg: 992px
+$xl: 1200px
+$xxl: 1400px
+
+:root
+  --main-red: $main-red
+  --main-black: $main-black
+  --medium-grey: $medium-grey
+  --swiper-theme-color: #9E0E0E
+  --swiper-navigation-size: 32px
+
+html.fixed
+  header
+    .main-header
+      z-index: 99999
+
+.home.page-template-default
+  .page-header-block
+    display: flex
+    flex-direction: column
+    align-items: center
+
+.restaurant-carbon-btn
+  display: inline-flex
+  position: relative
+  flex-direction: column
+  justify-content: center
+  align-items: center
+
+  width: 150px
+  height: 150px
+  margin-top: 30px
+
+  font-family: "Work Sans"
+  font-size: 15px
+  font-weight: 500
+  line-height: 16px
+  text-transform: uppercase
+  text-align: center
+  letter-spacing: 2.67px
+
+  border: 2px solid transparent
+  border-radius: 9999px
+
+  color: #fff
+  background-color: $main-red
+
+  transition: .3s all ease-in-out
+  transform: scale(1.00000001)
+  box-shadow: 0 8px 24px 0 rgba(0,0,0,0.0)
+  cursor: pointer
+  outline: none
+
+  &:hover
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.14)
+    transform: scale(1.04)
+    color: $main-red
+    background-color: #fff
+    //border-color: #fff
+    svg
+      path
+        fill: $main-red
+
+  &:focus
+    outline: none
+
+  &:active
+    outline: none
+
+  svg
+    position: absolute
+    left: 50%
+    bottom: 16px
+    transform: translateX(-50%)
+    transition: .3s all ease-in-out
+    path
+      transition: .3s all ease-in-out
+      fill: #fff
+
+@media (max-width: $lg)
+  .restaurant-carbon-btn
+    width: 120px
+    height: 120px
+    margin-top: 20px
+
+
+    font-size: 11px
+
+    line-height: 14px
+
+    letter-spacing: 2.67px
+    svg
+      bottom: 10px
+
+@media (max-width: $sm)
+  .restaurant-carbon-btn
+    width: 130px
+    height: 130px
+    font-size: 12px
+    line-height: 12px
+    letter-spacing: 2.67px
+    svg
+      bottom: 12px
