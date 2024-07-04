@@ -19,11 +19,11 @@ while ( have_posts() ) :
 		</div>
 		<div class="row newintro-items">
 			<a href="<?php if(ICL_LANGUAGE_CODE=='de'): ?>
-					https://www.ambassadorzermatt.com/familienurlaub-im-winter-in-zermatt/
+					/familienurlaub-im-winter-in-zermatt/
 			<?php elseif(ICL_LANGUAGE_CODE=='en'): ?>
-					https://www.ambassadorzermatt.com/en/family-holiday-in-winter-in-zermatt/
+					/en/family-holiday-in-winter-in-zermatt/
 			<?php elseif(ICL_LANGUAGE_CODE=='fr'): ?>
-					https://www.ambassadorzermatt.com/fr/vacances-en-famille-en-hiver-a-zermatt/
+					/fr/vacances-en-famille-en-hiver-a-zermatt/
 			<?php endif; ?>"><div class="col-12 col-sm-6 col-lg-3 intro-a-blocks" style="background-image:url('/wp-content/uploads/2021/11/familie-ambassador-s.jpg');"><span>
 			<?php if(ICL_LANGUAGE_CODE=='de'): ?>
 			Familienurlaub im Winter
@@ -35,11 +35,11 @@ while ( have_posts() ) :
 			</span></div></a>
 
 			<a href="<?php if(ICL_LANGUAGE_CODE=='de'): ?>
-					https://www.ambassadorzermatt.com/winteraktivitaeten/
+					/winteraktivitaeten/
 			<?php elseif(ICL_LANGUAGE_CODE=='en'): ?>
-					https://www.ambassadorzermatt.com/en/winter-activities/
+					/en/winter-activities/
 			<?php elseif(ICL_LANGUAGE_CODE=='fr'): ?>
-					https://www.ambassadorzermatt.com/fr/activites-dhiver/
+					/fr/activites-dhiver/
 			<?php endif; ?>"><div class="col-12 col-sm-6 col-lg-3 intro-a-blocks" style="background-image:url('/wp-content/uploads/2021/11/aktiv-ambassador-s.jpg');"><span>
 			<?php if(ICL_LANGUAGE_CODE=='de'): ?>
 			Winteraktivitäten
@@ -51,11 +51,11 @@ while ( have_posts() ) :
 			</span></div></a>
 
 			<a href="<?php if(ICL_LANGUAGE_CODE=='de'): ?>
-					https://www.ambassadorzermatt.com/ski-snowboard-in-zermatt/
+					/ski-snowboard-in-zermatt/
 			<?php elseif(ICL_LANGUAGE_CODE=='en'): ?>
-					https://www.ambassadorzermatt.com/en/ski-snowboard-in-zermatt/
+					/en/ski-snowboard-in-zermatt/
 			<?php elseif(ICL_LANGUAGE_CODE=='fr'): ?>
-					https://www.ambassadorzermatt.com/fr/ski-et-snowboard-a-zermatt/
+					/fr/ski-et-snowboard-a-zermatt/
 			<?php endif; ?>"><div class="col-12 col-sm-6 col-lg-3 intro-a-blocks" style="background-image:url('/wp-content/uploads/2021/11/ski-ambassador-s.jpg');"><span>
 			<?php if(ICL_LANGUAGE_CODE=='de'): ?>
 					Ski & Snowboard
@@ -67,11 +67,11 @@ while ( have_posts() ) :
 			</span></div></a>
 
 			<a href="<?php if(ICL_LANGUAGE_CODE=='de'): ?>
-					https://www.ambassadorzermatt.com/winterwandern-in-zermatt/
+					/winterwandern-in-zermatt/
 			<?php elseif(ICL_LANGUAGE_CODE=='en'): ?>
-					https://www.ambassadorzermatt.com/en/winter-hiking-in-zermatt/
+					/en/winter-hiking-in-zermatt/
 			<?php elseif(ICL_LANGUAGE_CODE=='fr'): ?>
-					https://www.ambassadorzermatt.com/fr/randonnee-hivernale-a-zermatt/
+					/fr/randonnee-hivernale-a-zermatt/
 			<?php endif; ?>"><div class="col-12 col-sm-6 col-lg-3 intro-a-blocks" style="background-image:url('/wp-content/uploads/2021/11/winterwandern-s.jpg');"><span>
 			<?php if(ICL_LANGUAGE_CODE=='de'): ?>
 					Winterwandern

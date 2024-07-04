@@ -78,8 +78,8 @@ function digid_theme_enqueue_styles() {
 	
 	wp_enqueue_style( 'fa-styles', get_template_directory_uri() . '/assets/fonts/fontawesome/css/font-awesome.min.css', array(), $theme_version );
 	//wp_enqueue_style( 'fancybox-styles', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css', array(), $theme_version );
-	//wp_enqueue_style( 'slick-default', get_template_directory_uri() . '/assets/js/slick/slick.css', array(), $theme_version );
-	//wp_enqueue_style( 'slick-custom', get_template_directory_uri() . '/assets/js/slick/slick-theme.css', array(), $theme_version );
+	wp_enqueue_style( 'slick-default', get_template_directory_uri() . '/assets/js/slick/slick.css', array(), $theme_version );
+	wp_enqueue_style( 'slick-custom', get_template_directory_uri() . '/assets/js/slick/slick-theme.css', array(), $theme_version );
 	// From the plugin.
 	wp_enqueue_style( 'bootstrap-grid', get_template_directory_uri() . '/assets/css/bootstrap/bootstrap-grid.min.css', array(), $theme_version );
 	wp_enqueue_style( 'bootstrap-reboot', get_template_directory_uri() . '/assets/css/bootstrap/bootstrap-reboot.min.css', array(), $theme_version );
@@ -105,9 +105,10 @@ function digid_theme_enqueue_styles() {
 	// From the plugin.
 	//wp_enqueue_script( 'fresco', get_stylesheet_directory_uri() . '/assets/js/fresco.js', array( 'jquery' ), $theme_version, true );
 	wp_enqueue_script( 'mmenu-script', get_stylesheet_directory_uri() . '/assets/js/jquery.mmenu.all.js', array( 'jquery' ), $theme_version, true );
+	wp_enqueue_script( 'slick-scripts', get_stylesheet_directory_uri() . '/assets/js/slick/slick.js', array( 'jquery' ), $theme_version, true );
 	wp_enqueue_script( 'scripts', get_stylesheet_directory_uri() . '/assets/js/scripts.js', array( 'jquery' ), $theme_version, true );
 	wp_enqueue_script( 'digid-scripts', get_stylesheet_directory_uri() . '/dist/js/main.js', array( 'jquery' ), $theme_version, true );
-	//wp_enqueue_script( 'slick-scripts', get_stylesheet_directory_uri() . '/assets/js/slick/slick.js', array( 'jquery' ), $theme_version, true );
+
 
 }
 
@@ -186,6 +187,18 @@ function digid_print( $data ) {
 		print_r( $data );
 		echo '</code>';
 	}
+}
+
+function consoleLogs($data) {
+	$html = "";
+	$coll;
+	if (is_array($data) || is_object($data)) {
+			$coll = json_encode($data);
+	} else {
+			$coll = $data;
+	}
+	$html = "<script>console.log('PHP: ".$coll."');</script>";
+	echo($html);
 }
 
 // SESSION.

@@ -1,8 +1,5 @@
-//import "./theme-core";
 import "./swiper";
-import "slick-carousel/slick/slick";
 import "@staaky/fresco/dist/js/fresco.min.js";
-
 import "@fancyapps/ui";
 
 // wait until DOM is ready

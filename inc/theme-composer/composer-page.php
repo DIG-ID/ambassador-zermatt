@@ -66,17 +66,23 @@ function digid_content_composer( $entity_fields ) {
 												</section>
 											</div>
 											<script>
-												$(document).ready(function(){
-													$("#<?php echo $randID; ?>").slick({
+												// wait until DOM is ready
+												document.addEventListener("DOMContentLoaded", () => {
+													//wait until images, links, fonts, stylesheets, and js is loaded
+													window.addEventListener("load", () => {
+														var $ = jQuery;
+														$("#<?php echo $randID; ?>").slick({
 														dots: false,
 														infinite: true,
 														speed: 700,
 														slidesToShow: 1, 
 														autoplay: true,
 														variableWidth: true,
-														prevArrow: '<img class="slick-prev slick-arrow" src="<?php echo get_template_directory_uri(); ?>/images/arrow-button-prev-small.svg" height="20" width="20" />',
-														nextArrow: '<img class="slick-next slick-arrow" src="<?php echo get_template_directory_uri(); ?>/images/arrow-button-next-small.svg" height="20" width="20" />'
+														prevArrow: '<img class="slick-prev slick-arrow" src="<?php echo get_template_directory_uri(); ?>/assets/images/arrow-button-prev-small.svg" height="20" width="20" />',
+														nextArrow: '<img class="slick-next slick-arrow" src="<?php echo get_template_directory_uri(); ?>/assets/images/arrow-button-next-small.svg" height="20" width="20" />'
 													});
+
+													}, false);
 												});
 											</script>
 											<?php 
@@ -158,18 +164,28 @@ function digid_content_composer( $entity_fields ) {
 												?>
 												</section>
 											</div>
-											<script>											
-												$(document).ready(function(){
-													$("#<?php echo $randID; ?>").slick({
+											<script>
+												// wait until DOM is ready
+												document.addEventListener("DOMContentLoaded", () => {
+													//wait until images, links, fonts, stylesheets, and js is loaded
+													window.addEventListener("load", () => {
+														var $ = jQuery;
+														$("#<?php echo $randID; ?>").slick({
 														dots: false,
 														infinite: true,
 														speed: 700,
 														slidesToShow: 1, 
 														autoplay: true,
 														variableWidth: true,
-														prevArrow: '<img class="slick-prev slick-arrow" src="<?php echo get_template_directory_uri(); ?>/images/arrow-button-prev-small.svg" height="20" width="20" />',
-														nextArrow: '<img class="slick-next slick-arrow" src="<?php echo get_template_directory_uri(); ?>/images/arrow-button-next-small.svg" height="20" width="20" />'
+														prevArrow: '<img class="slick-prev slick-arrow" src="<?php echo get_template_directory_uri(); ?>/assets/images/arrow-button-prev-small.svg" height="20" width="20" />',
+														nextArrow: '<img class="slick-next slick-arrow" src="<?php echo get_template_directory_uri(); ?>/assets/images/arrow-button-next-small.svg" height="20" width="20" />'
 													});
+
+													}, false);
+												});
+												
+												$(document).ready(function(){
+
 												});
 											</script>
 											<?php 
@@ -233,7 +249,8 @@ function digid_content_composer( $entity_fields ) {
 									?>
 									</section>
 								</div>
-								<script>											
+								<script>
+									var $ = jQuery;
 									$(document).ready(function(){
 										$("#<?php echo $randID; ?>").slick({
 											dots: false,
@@ -244,8 +261,8 @@ function digid_content_composer( $entity_fields ) {
 											slidesToShow: 3, 
 											autoplay: true,
 											variableWidth: true,
-											prevArrow: '<img class="slick-prev slick-arrow" src="<?php echo get_template_directory_uri(); ?>/images/arrow-button-prev-small.svg" height="20" width="20" />',
-											nextArrow: '<img class="slick-next slick-arrow" src="<?php echo get_template_directory_uri(); ?>/images/arrow-button-next-small.svg" height="20" width="20" />',
+											prevArrow: '<img class="slick-prev slick-arrow" src="<?php echo get_template_directory_uri(); ?>/assets/images/arrow-button-prev-small.svg" height="20" width="20" />',
+											nextArrow: '<img class="slick-next slick-arrow" src="<?php echo get_template_directory_uri(); ?>/assets/images/arrow-button-next-small.svg" height="20" width="20" />',
 											responsive: [
 													{
 														breakpoint: 1172,

@@ -1,69 +1,63 @@
-<?php $lang = $args['lang']; ?>
 <div class="header-menu-container">
 	<div class="header-menu-content">
 		<ul>
 			<?php
-			$main_menu         = array( wp_get_nav_menu_items( 'Main Menu - ' . $lang ) );
+			$menu_name         = 'menu-main';
+			$locations         = get_nav_menu_locations();
 			$remasterize_mmenu = array();
-
-			// Parse Menu Mobile.
-			foreach ( $main_menu as $mm => $a_menu ) :
-				foreach ( $a_menu as $mm => $item ) :
-					// Parent.
-					if ( icl_object_id( $item->menu_item_parent, 'page' ) === 0 ) :
-						$remasterize_mmenu[ $item->ID ] = array(
-							'parent'          => array(
+			if ( $locations && isset( $locations[ $menu_name ] ) ) :
+				$main_menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
+				if ( $main_menu ) :
+					$main_menu_items = wp_get_nav_menu_items( $main_menu->term_id );
+					foreach ( $main_menu_items as $item ) :
+						if ( empty( $item->menu_item_parent ) ) :
+							$remasterize_mmenu[ $item->ID ] = array(
+								'parent'          => array(
+									'url'   => $item->url,
+									'title' => $item->title,
+								),
+								'active'          => '',
+								'active-as-child' => '',
+								'children'        => array(),
+							);
+							if ( $item->object_id === $post->ID || ( $post->post_parent && $item->object_id === $post->post_parent ) ) :
+								$remasterize_mmenu[ $item->ID ]['active'] = 'active';
+								$remasterize_mmenu[ $item->ID ]['active-as-child'] = 'active selected';
+							endif;
+						else :
+							$remasterize_mmenu[ $item->menu_item_parent ]['children'][ $item->ID ] = array(
 								'url'    => $item->url,
 								'title'  => $item->title,
-							),
-							'active'          => '',
-							'active-as-child' => '',
-							'children'        => array(),
-						);
-						if ( icl_object_id( $post->post_parent, 'page' ) === icl_object_id( $item->object_id, 'page' ) || icl_object_id( $post->ID, 'page' ) === icl_object_id( $item->object_id, 'page' ) ) :
-							$remasterize_mmenu[ $item->ID ]['active'] = 'active';
-							// Repeating current/parent item at the top of the potential child list (if any).
-							$remasterize_mmenu[ $item->ID ]['active-as-child'] = 'active selected';
+								'active' => '',
+							);
+							if ( $item->object_id === $post->ID ) :
+								$remasterize_mmenu[ $item->menu_item_parent ]['children'][ $item->ID ]['active'] = 'active';
+								$remasterize_mmenu[ $item->menu_item_parent ]['active-as-child'] = '';
+							endif;
 						endif;
-					else :
-						// Child.
-						$remasterize_mmenu[ $item->menu_item_parent ]['children'][ $item->ID ] = array(
-							'url'    => $item->url,
-							'title'  => $item->title,
-							'active' => '',
-						);
-						if ( icl_object_id( $post->ID, 'page' ) === icl_object_id( $item->object_id, 'page' ) ) :
-							$remasterize_mmenu[ $item->menu_item_parent ]['children'][ $item->ID ]['active'] = 'active';
-							$remasterize_mmenu[ $item->menu_item_parent ]['active-as-child']                 = '';
+					endforeach;
+					foreach ( $remasterize_mmenu as $m_id => $main_menu_item ) :
+						$main_menu_item_html = '<li id="li-' . $m_id . '" class="item ">';
+						$child_list = '';
+						if ( count( $main_menu_item['children'] ) > 0 ) :
+							foreach ( $main_menu_item['children'] as $c_id => $child ) :
+								$child_list .= '<li class="item child-item ' . $child['active'] . '"><a href="' . esc_url( $child['url'] ) . '" class="' . esc_attr( $child['active'] ) . '">' . esc_html( $child['title'] ) . '</a></li>' . "\n";
+							endforeach;
 						endif;
-					endif;
-				endforeach;
-			endforeach;
-			foreach ( $remasterize_mmenu as $m_id => $main_menu_item ) :
-				//digid_print($main_menu_item);
-				$main_menu_item_html = '<li id="li-' . $m_id . '" class="item ">';
-				// Do we have Children?
-				$child_list = '';
-				if ( count( $main_menu_item['children'] ) > 0 ) :
-					// Check validity of each.
-					foreach ( $main_menu_item['children'] as $c_id => $child ) :
-						$child_list .= '<li class="item child-item ' . $child['active'] . '"><a href="' . $child['url'] . '" class="' . $child['active'] . '">' . $child['title'] . '</a></li>' . "\n";
+						if ( ! empty( $child_list ) ) :
+							$item_it_self = '';
+							if ( isset( $main_menu_item['parent']['title'] ) && isset( $main_menu_item['active-as-child'] ) ) :
+								$item_it_self = '<li class="item child-item ' . esc_attr( $main_menu_item['active-as-child'] ) . ' itemItself">' . esc_html( $main_menu_item['parent']['title'] ) . '</li>';
+							endif;
+							$main_menu_item_html .= '<ul class="sub-menu">' . $item_it_self . $child_list . '</ul>' . "\n";
+						else :
+							$main_menu_item_html .= '<a href="' . esc_url( $main_menu_item['parent']['url'] ) . '" class="' . esc_attr( $main_menu_item['parent']['active'] ) . '">' . esc_html( $main_menu_item['parent']['title'] ) . '</a>';
+						endif;
+						$main_menu_item_html .= '</li>' . "\n";
+						echo $main_menu_item_html;
 					endforeach;
 				endif;
-				// We Have one or some child valid.
-				if ( '' !== $child_list ) :
-					$item_it_self = '';
-					if ( isset( $main_menu_item['parent']['title'] ) && isset( $main_menu_item['parent']['active-as-child'] ) ) {
-						$item_it_self = '<li class="item child-item ' . $main_menu_item['parent']['active-as-child'] . ' itemItself">' . $main_menu_item['parent']['title'] . '</li>';
-					}
-					$main_menu_item_html .= '<ul class="sub-menu">' . $item_it_self . $child_list . '</ul>' . "\n"; // '<span>'.$main_menu_item['parent']['title'].'</span>'.
-				else :
-					$main_menu_item_html .= '<a href="' . $main_menu_item['parent']['url'] . '" class="' . $main_menu_item['parent']['active'] . '">' . $main_menu_item['parent']['title'] . '</a>';
-				endif;
-				$main_menu_item_html .= '</li>' . "\n";
-				// Print Element.
-				echo $main_menu_item_html;
-			endforeach;
+			endif;
 			?>
 		</ul>
 	</div><!-- .header-menu-content -->
@@ -92,24 +86,29 @@
 			}
 		</style>
 
-
-
 	<div class="header-sub-menu-content">
 		<div class="container">
 			<div class="row no-gutters">
 				<div class="col-12">
 					<ul>
 						<?php
-						// Menus
-						$main_menu = wp_get_nav_menu_items( 9 );
-						// Parse Menu Mobile
-						foreach($main_menu as $mm => $item){
-							$active = '';
-							if( $post->post_parent == $item->object_id || $post->ID == $item->object_id ){
-								$active = 'active';
-							}
-							echo '<li class="'.$active.'"><a href="'.$item->url.'" class="'.$active.'">'.$item->title.'</a></li>';
-						}
+						$menu_name         = 'menu-sub';
+						$locations         = get_nav_menu_locations();
+						$remasterize_mmenu = array();
+						if ( $locations && isset( $locations[ $menu_name ] ) ) :
+							$sub_menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
+							if ( $sub_menu ) :
+								$sub_menu_items = wp_get_nav_menu_items( $sub_menu->term_id );
+								foreach ( $sub_menu_items as $item ) :
+									$active = '';
+									if ( $post->post_parent === $item->object_id || $post->ID === $item->object_id ) :
+										$active = 'active';
+									endif;
+									echo '<li class="' . esc_attr( $active ) . '"><a href="' . esc_url( $item->url ) . '" class="' . esc_attr( $active ) . '">' . esc_html( $item->title ) . '</a></li>';
+
+								endforeach;
+							endif;
+						endif;
 						?>
 					</ul>
 				</div>

@@ -146,7 +146,7 @@ add_action( 'wp_before_admin_bar_render', 'digid_admin_bar_render' );
  * Changing the text in the footer
  */
 function digid_admin_remove_footer_admin() {
-	echo '<a href="https://dig.id" target="_blank">dig.id | Av. Nestlé 22 | 1800 Vevey</a>';
+	echo '<p>Developed by: <a href="https://dig.id" target="_blank">dig.id</a></p>';
 }
 
 add_filter( 'admin_footer_text', 'digid_admin_remove_footer_admin' );
@@ -158,10 +158,10 @@ function digid_admin_login_logo() {
 	?>
 	<style type="text/css">
 		#login h1 a, .login h1 a {
-			background-image: url(<?php echo get_template_directory_uri() . '/assets/images/logo-min.png'; ?>);
-			background-size: 320px;
-			width: 320px;
-			height: 66px;
+			background-image: url(<?php echo get_template_directory_uri() . '/assets/images/logo.svg'; ?>);
+			background-size: 448px;
+			width: 448px;
+			height: 140px;
 		}
 		#backtoblog{
 			display: none;

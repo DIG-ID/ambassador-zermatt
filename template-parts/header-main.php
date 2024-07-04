@@ -1,4 +1,3 @@
-<?php $lang = $args['lang']; ?>
 <div class="wrapper">
 	<!--<div class="header-mobile d-block d-lg-none d-md-none hidden-print">-->
 	<div class="header-mobile d-block d-lg-none hidden-print">
@@ -86,7 +85,7 @@
 		</div>
 
 		<?php get_template_part( 'template-parts/components/header/socials' ); ?>
-		<?php get_template_part( 'template-parts/components/header/mega-menu', false, array( 'lang' => $lang ) ); ?>
+		<?php get_template_part( 'template-parts/components/header/mega-menu' ); ?>
 		<?php get_template_part( 'template-parts/components/header/page-header-buttons', false, array( 'entity_fields' => $entity_fields ) ); ?>
 	</header>
 </div>

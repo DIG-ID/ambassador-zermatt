@@ -1,8 +1,6 @@
 <?php
 // Languages
-
-$lang = apply_filters( 'wpml_current_language', null );
-
+$current_lang = apply_filters( 'wpml_current_language', null );
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -16,7 +14,6 @@ $lang = apply_filters( 'wpml_current_language', null );
 	<link rel="icon" type="image/png" sizes="32x32" href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/favicon-16x16.png">
 	<link rel="manifest" href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/site.webmanifest">
-
 
 	<!-- Google Tag Manager -->
 	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -71,7 +68,7 @@ $lang = apply_filters( 'wpml_current_language', null );
 		})(window, document, 'script', 'https://cdn.simplebooking.it/search-box-script.axd?IDA=5288','SBSyncroBox');
 
 		SBSyncroBox({
-				CodLang: '<?php echo strtoupper( $lang ); ?>',
+				CodLang: '<?php echo strtoupper( $current_lang ); ?>',
 				Styles: {
 				Theme: 'light-pink',
 				CustomColor: "#000000",
@@ -83,7 +80,7 @@ $lang = apply_filters( 'wpml_current_language', null );
 		});
 
 		SBSyncroBox({
-			CodLang: '<?php echo strtoupper( $lang ); ?>',
+			CodLang: '<?php echo strtoupper( $current_lang ); ?>',
 			Currency: 'CHF',
 			MainContainerId: 'sb-container-bar',
 			Labels: {
@@ -129,4 +126,4 @@ $lang = apply_filters( 'wpml_current_language', null );
 	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M2H7VXR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	<!-- End Google Tag Manager (noscript) -->
 	<?php do_action( 'wp_body_open' ); ?>
-	<?php get_template_part( 'template-parts/header', 'main', array( 'lang' => $lang ) ); ?>
+	<?php get_template_part( 'template-parts/header', 'main' ); ?>

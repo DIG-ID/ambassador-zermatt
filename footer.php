@@ -81,63 +81,71 @@ $lang      = ! empty( $post_lang['language_code'] ) ? $post_lang['language_code'
 		<nav id="menu-mobile">
 			<ul>
 				<?php
-				// Menus.
-				$mmenu = array( wp_get_nav_menu_items( 'Main Menu - ' . $lang ), wp_get_nav_menu_items( 'Sub Menu - ' . $lang ) );
-				//var_dump( $menu );
-				$remasterizeMMenu = array();
+				$menu_names        = array( 'menu-main', 'menu-sub' );
+				$remasterize_mmenu = array();
 
-				// Parse Menu Mobile.
-				foreach( $mmenu as $m => $aMenu ) {
-					$i = 0;
-					foreach( $aMenu as $m => $item ) {
-						// Parent.
-						if ( icl_object_id( $item->menu_item_parent, 'page' ) == 0 ) {
-							$remasterizeMMenu[$item->ID] = array( 'parent' => array( 'url' => $item->url, 'title' => $item->title ),
-								'active' => '',
-								'active-as-child' => '',
-								'children' => array(),
-							);
-							if ( icl_object_id( $post->post_parent, 'page' ) == icl_object_id( $item->object_id, 'page' )|| icl_object_id( $post->ID, 'page' ) == icl_object_id( $item->object_id, 'page' ) ){
-								$remasterizeMMenu[$item->ID]['active'] = 'active';
-								// Repeating current/parent item at the top of the potential child list (if any).
-								$remasterizeMMenu[$item->ID]['active-as-child'] = 'active selected';
-							}
-						}
-						// Child.
-						else {
-							$remasterizeMMenu[$item->menu_item_parent]['children'][$item->ID] = array( 'url' => $item->url, 'title' => $item->title, 'active' => '' );
-							if(icl_object_id($post->ID, 'page') == icl_object_id($item->object_id, 'page')){
-								$remasterizeMMenu[$item->menu_item_parent]['children'][$item->ID]['active'] = 'active';
-								$remasterizeMMenu[$item->menu_item_parent]['active-as-child'] = '';
-							}
-						}
-					}
-				}
-				foreach ( $remasterizeMMenu as $mID => $menuItem ) {
-					$menuItemHTML = '<li id="li-'.$item->ID.'" class="item '.$menuItem['active'].'">';
-					// Do we have Children?
-					$childList = '';
-					if ( count( $menuItem['children'] ) > 0 ) {
-						// Check validity of each.
-						foreach ( $menuItem['children'] as $cID => $child ) {
-							//'.$child['active'].'
-							$childList.= '<li class="item child-item "><a href="'.$child['url'].'" class="'.$child['active'].'">'.$child['title'].'</a></li>'."\n";
-						}
-					}
-					// We Have one or some child valid.
-					if ( $childList != '' ) {
-						// $itemItSelf = '<li class="item child-item '.$menuItem['active-as-child'].' itemItself"><a href="'.$menuItem['parent']['url'].'" class="'.$menuItem['parent']['active'].'">'.$menuItem['parent']['title'].'</a></li>';
-						$itemItSelf = '';
-						$menuItemHTML.= '<span>'.$menuItem['parent']['title'].'</span>'.'<ul class="sub-menu">'.$itemItSelf.$childList.'</ul>'."\n";
-					}
-					// '.$menuItem['parent']['active-as-child'].'
-					else $menuItemHTML.= '<li><a href="'.$menuItem['parent']['url'].'" class="'.$menuItem['parent']['title'].'</a></li>';
-					$menuItemHTML.= '</li>'."\n";
+				foreach ( $menu_names as $menu_name ) :
+					$locations = get_nav_menu_locations();
+					if ( $locations && isset( $locations[ $menu_name ] ) ) :
+						$main_menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
+						if ( $main_menu ) :
+							$main_menu_items = wp_get_nav_menu_items( $main_menu->term_id );
+							foreach ( $main_menu_items as $mm => $item ) :
+								if ( empty( $item->menu_item_parent ) ) :
+									$remasterize_mmenu[ $item->ID ] = array(
+										'parent'          => array(
+											'url'   => $item->url,
+											'title' => $item->title,
+										),
+										'active'          => '',
+										'active-as-child' => '',
+										'children'        => array(),
+									);
+									if ( $item->object_id === $post->ID || ( $post->post_parent && $item->object_id === $post->post_parent ) ) :
+										$remasterize_mmenu[ $item->ID ]['active'] = 'active';
+										$remasterize_mmenu[ $item->ID ]['active-as-child'] = 'active selected';
+									endif;
+								else :
+									$remasterize_mmenu[ $item->menu_item_parent ]['children'][ $item->ID ] = array(
+										'url'    => $item->url,
+										'title'  => $item->title,
+										'active' => '',
+									);
+									if ( $item->object_id === $post->ID ) :
+										$remasterize_mmenu[ $item->menu_item_parent ]['children'][ $item->ID ]['active'] = 'active';
+										$remasterize_mmenu[ $item->menu_item_parent ]['active-as-child'] = '';
+									endif;
+								endif;
+							endforeach;
+						endif;
+					endif;
+				endforeach;
+				foreach ( $remasterize_mmenu as $m_id => $main_menu_item ) :
+					$active = '';
+					if ( isset( $main_menu_item['active'] ) ) :
+						$active = 'active';
+					endif;
+					$main_menu_item_html = '<li id="li-' . $m_id . '" class="item ' . $main_menu_item['active'] . '">';
+					$child_list = '';
+					if ( count( $main_menu_item['children'] ) > 0 ) :
+						foreach ( $main_menu_item['children'] as $c_id => $child ) :
+							$child_list .= '<li class="item child-item ' . $child['active'] . '"><a href="' . esc_url( $child['url'] ) . '" class="' . esc_attr( $child['active'] ) . '">' . esc_html( $child['title'] ) . '</a></li>' . "\n";
+						endforeach;
+					endif;
+					if ( ! empty( $child_list ) ) :
+						$main_menu_item_html .= '<span>' . $main_menu_item['parent']['title'] . '</span><ul class="sub-menu">' . $child_list . '</ul>' . "\n";
+					else :
+						$active = '';
+						if ( isset( $main_menu_item['parent']['active'] ) ) :
+							$active = 'active';
+						endif;
+						$main_menu_item_html .= '<li><a href="' . esc_url( $main_menu_item['parent']['url'] ) . '" class="' . $active . '">' . $main_menu_item['parent']['title'] . '</a></li>';
 
-					// Print Element.
-					echo $menuItemHTML;
-				}
 
+					endif;
+					$main_menu_item_html .= '</li>' . "\n";
+					echo $main_menu_item_html;
+				endforeach;
 				do_action( 'wpml_add_language_selector' );
 				?>
 				<!--<div id="label-hotel-home-mobile"><img src="https://www.ambassadorzermatt.com/wp-content/uploads/2020/06/cleansafehotellabel.png"></div>
