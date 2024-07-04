@@ -1,0 +1,29 @@
+#wds_main_title_counter_result,
+#types-information-table,
+#wds-wds-meta-box .widefat tr,
+#wds-wds-meta-box .widefat tr:nth-child(5) .wds_subtable tr:nth-child(3),
+#wds_main_title_counter_result,
+#wds_title_counter_result,
+#wds_meta_counter_result,
+#dashboard_primary,
+#network_dashboard_right_now,
+#wpml_als_help_link,
+.media-sidebar .gallery-settings,
+.setting[data-setting=alt],
+.setting[data-setting=description],
+.compat-item,
+#postimagediv #sis_featured_regenerate,
+#icl_how_to_translate_link {
+	display:none;
+}
+
+.widget__title {
+	font-weight:700!important;
+}
+
+#wds-wds-meta-box .widefat tr:nth-child(1),
+#wds-wds-meta-box .widefat tr:nth-child(2),
+#wds-wds-meta-box .widefat tr:nth-child(3),
+#wds-wds-meta-box .widefat tr:nth-child(5) {
+	display:table-row;
+}

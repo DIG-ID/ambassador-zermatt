@@ -1,0 +1,29 @@
+.fr-close{
+	right: 7px;
+}
+
+.fr-window-skin-fresco.fr-window-ui-outside .fr-close-background, .fr-window-skin-fresco.fr-window-ui-outside .fr-close:hover .fr-close-background, .fr-ui-outside .fr-info-background, .fr-window-skin-fresco .fr-content-background {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.fr-position-background{
+	background: transparent;
+}
+
+.fr-stroke{
+	display: none;
+}
+
+.fr-info-padder{
+	padding: 12px 0;
+}
+
+.fr-info {
+    font-size: inherit;
+    line-height: 20px;
+}
+
+.fr-window {
+    font: inherit;
+}

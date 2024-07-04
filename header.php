@@ -1,16 +1,8 @@
 <?php
 // Languages
-$lang = 'fr';
-if ( function_exists( 'icl_get_languages' ) ) {
-	$languages = icl_get_languages( 'skip_missing=0&orderby=name&order=asc&link_empty_to=str' );
-	foreach ( $languages as $abrv => $language ) {
-		// Active?
-		if ( 1 === $language['active'] ) {
-			$lang = $abrv;
-			break;
-		}
-	}
-}
+
+$lang = apply_filters( 'wpml_current_language', null );
+
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -128,6 +120,7 @@ if ( function_exists( 'icl_get_languages' ) ) {
 		});
 	</script>
 	<!-- END of Simple Booking Script -->
+
 	<?php wp_head(); ?>
 </head>
 

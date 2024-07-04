@@ -25,6 +25,10 @@ function digid_theme_setup() {
 
 	add_image_size( 'page-header', 1920, 780 );
 
+	add_image_size( 'gallery', '767', '767', array( '1', '' ) );
+
+	add_image_size( 'gallery-full', '1920', '1280', false );
+
 }
 
 add_action( 'after_setup_theme', 'digid_theme_setup' );
@@ -71,11 +75,19 @@ function digid_theme_enqueue_styles() {
 	$theme_version = $the_theme->get( 'Version' );
 
 	// Theme styles by ergopix.
-	wp_enqueue_style( 'style', get_template_directory_uri() . '/style.css', array(), $theme_version );
+	
 	wp_enqueue_style( 'fa-styles', get_template_directory_uri() . '/assets/fonts/fontawesome/css/font-awesome.min.css', array(), $theme_version );
-	wp_enqueue_style( 'fancybox-styles', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css', array(), $theme_version );
-	wp_enqueue_style( 'slick-default', get_template_directory_uri() . '/assets/js/slick/slick.css', array(), $theme_version );
-	wp_enqueue_style( 'slick-custom', get_template_directory_uri() . '/assets/js/slick/slick-theme.css', array(), $theme_version );
+	//wp_enqueue_style( 'fancybox-styles', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css', array(), $theme_version );
+	//wp_enqueue_style( 'slick-default', get_template_directory_uri() . '/assets/js/slick/slick.css', array(), $theme_version );
+	//wp_enqueue_style( 'slick-custom', get_template_directory_uri() . '/assets/js/slick/slick-theme.css', array(), $theme_version );
+	// From the plugin.
+	wp_enqueue_style( 'bootstrap-grid', get_template_directory_uri() . '/assets/css/bootstrap/bootstrap-grid.min.css', array(), $theme_version );
+	wp_enqueue_style( 'bootstrap-reboot', get_template_directory_uri() . '/assets/css/bootstrap/bootstrap-reboot.min.css', array(), $theme_version );
+	wp_enqueue_style( 'mmenu-styles', get_template_directory_uri() . '/assets/css/jquery.mmenu.all.css', array(), $theme_version );
+	wp_enqueue_style( 'style', get_template_directory_uri() . '/style.css', array(), $theme_version );
+	//wp_enqueue_style( 'gallery', get_template_directory_uri() . '/assets/css/gallery.css', array(), $theme_version );
+	//wp_enqueue_style( 'fresco', get_template_directory_uri() . '/assets/css/fresco.css', array(), $theme_version );
+	//wp_enqueue_style( 'fresco-override', get_template_directory_uri() . '/assets/css/fresco-override.css', array(), $theme_version );
 
 	// Register Theme main style by dig.
 	wp_register_style( 'theme-styles', get_template_directory_uri() . '/dist/css/main.css', array(), $theme_version );
@@ -87,10 +99,15 @@ function digid_theme_enqueue_styles() {
 	wp_enqueue_style( 'theme-styles' );
 
 	wp_enqueue_script( 'jquery' );
+
+	//wp_enqueue_script( 'fancybox-scripts', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js', array( 'jquery' ), $theme_version, true );
+	//wp_enqueue_script( 'slick-scripts', get_stylesheet_directory_uri() . '/assets/js/slick/slick.js', array( 'jquery' ), $theme_version, true );
+	// From the plugin.
+	//wp_enqueue_script( 'fresco', get_stylesheet_directory_uri() . '/assets/js/fresco.js', array( 'jquery' ), $theme_version, true );
+	wp_enqueue_script( 'mmenu-script', get_stylesheet_directory_uri() . '/assets/js/jquery.mmenu.all.js', array( 'jquery' ), $theme_version, true );
 	wp_enqueue_script( 'scripts', get_stylesheet_directory_uri() . '/assets/js/scripts.js', array( 'jquery' ), $theme_version, true );
 	wp_enqueue_script( 'digid-scripts', get_stylesheet_directory_uri() . '/dist/js/main.js', array( 'jquery' ), $theme_version, true );
-	wp_enqueue_script( 'fancybox-scripts', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js', array( 'jquery' ), $theme_version, true );
-	wp_enqueue_script( 'slick-scripts', get_stylesheet_directory_uri() . '/assets/js/slick/slick.js', array( 'jquery' ), $theme_version, true );
+	//wp_enqueue_script( 'slick-scripts', get_stylesheet_directory_uri() . '/assets/js/slick/slick.js', array( 'jquery' ), $theme_version, true );
 
 }
 
@@ -165,9 +182,9 @@ add_filter( 'wpseo_metabox_prio', 'digid_lower_yoast_metabox_priority' );
  */
 function digid_print( $data ) {
 	if ( is_array( $data ) || '' !== $data ) {
-		echo '<pre>';
+		echo '<code>';
 		print_r( $data );
-		echo '</pre>';
+		echo '</code>';
 	}
 }
 
@@ -185,3 +202,6 @@ require get_template_directory() . '/inc/theme-composer/composer-home.php';
 
 // The theme home composer.
 require get_template_directory() . '/inc/theme-composer/composer-page.php';
+
+// The theme admin setings.
+require get_template_directory() . '/inc/admin/admin.php';

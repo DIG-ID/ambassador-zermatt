@@ -1,4 +1,10 @@
+//import "./theme-core";
 import "./swiper";
+import "slick-carousel/slick/slick";
+import "@staaky/fresco/dist/js/fresco.min.js";
+
+import "@fancyapps/ui";
+
 // wait until DOM is ready
 document.addEventListener("DOMContentLoaded", () => {
 	//wait until images, links, fonts, stylesheets, and js is loaded
@@ -15,6 +21,16 @@ document.addEventListener("DOMContentLoaded", () => {
       });
       
     }
+
+    $("a.fresco").each(function(){
+      attr_caption = $(this).attr("data-fresco-caption");
+      if(!attr_caption){
+        attr_caption = $(this).next(".wp-caption-text").html();
+        if(attr_caption){
+          $(this).attr("data-fresco-caption",attr_caption);
+        }
+      }
+    });
 
   }, false);
 });
