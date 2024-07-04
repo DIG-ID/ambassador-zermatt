@@ -4,7 +4,7 @@
  * Adding stylesheet in the admin.
  */
 function digid_admin_add_css() {
-	echo '<link rel="stylesheet" type="text/css" href="' . plugin_dir_url("") . '/ergopix/css/admin.css">';
+	echo '<link rel="stylesheet" type="text/css" href="' . get_template_directory_uri() . '/assets/css/admin.css">';
 }
 
 add_action( 'admin_head', 'digid_admin_add_css' );
@@ -44,7 +44,7 @@ add_filter( 'contextual_help', 'digid_admin_remove_help', 999, 3 );*/
  * Add the custom-editor-style.css stylesheet in the editor
  */
 function digid_admin_add_editor_styles() {
-	add_editor_style( get_bloginfo( 'template_url' ) . '/css/editor-style.css' );
+	add_editor_style( get_template_directory_uri() . '/assets/css/editor-style.css' );
 }
 
 add_action( 'init', 'digid_admin_add_editor_styles' );
@@ -62,7 +62,7 @@ function digid_admin_add_dashboard_widgets() {
 	wp_add_dashboard_widget( 'digid_dashboard_widget', 'Administration Web', 'digid_admin_dashboard_widget_content' );
 }
 
-add_action( 'wp_dashboard_setup', 'digid_admin_add_dashboard_widgets' );
+//add_action( 'wp_dashboard_setup', 'digid_admin_add_dashboard_widgets' );
 
 /**
  * Hide update messages for users
@@ -157,11 +157,17 @@ add_filter( 'admin_footer_text', 'digid_admin_remove_footer_admin' );
 function digid_admin_login_logo() {
 	?>
 	<style type="text/css">
+		#login h1 {
+			text-align: center;
+		}
 		#login h1 a, .login h1 a {
 			background-image: url(<?php echo get_template_directory_uri() . '/assets/images/logo.svg'; ?>);
 			background-size: 448px;
 			width: 448px;
 			height: 140px;
+			background-position: center center;
+			background-repeat: no-repeat;
+			text-align: center;
 		}
 		#backtoblog{
 			display: none;

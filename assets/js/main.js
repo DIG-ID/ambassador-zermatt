@@ -1,6 +1,7 @@
 import "./swiper";
 import "@staaky/fresco/dist/js/fresco.min.js";
 import "@fancyapps/ui";
+import "./lenis";
 
 // wait until DOM is ready
 document.addEventListener("DOMContentLoaded", () => {
