@@ -162,9 +162,9 @@ function digid_admin_login_logo() {
 		}
 		#login h1 a, .login h1 a {
 			background-image: url(<?php echo get_template_directory_uri() . '/assets/images/logo.svg'; ?>);
-			background-size: 448px;
-			width: 448px;
-			height: 140px;
+			background-size: 280px;
+			width: 280px;
+			height: 160px;
 			background-position: center center;
 			background-repeat: no-repeat;
 			text-align: center;
