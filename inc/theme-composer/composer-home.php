@@ -84,7 +84,7 @@ function digid_home_content_composer( $entity_fields ) {
 								</div>
 								<div class="hp-st-text wysiwyg-container">
 									<span><?php echo wp_kses_post( wpautop( $presentation ) ); ?></span>
-									<span class="hp-st-readmore"><?php echo '<a href="' . esc_url( $link_pg ) . '" class="btn">' . esc_html__( 'Read more', 'az' ) . '</a>'; ?></span>
+									<span class="hp-st-readmore"><?php echo '<a href="' . esc_url( $link_pg ) . '" class="btn">' . esc_html__( 'Read more', 'ergopix' ) . '</a>'; ?></span>
 								</div>
 							</div>
 							<div class="col-lg-1 hidden-md-down"></div>
