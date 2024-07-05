@@ -19,67 +19,68 @@ while ( have_posts() ) :
 		</div>
 		<div class="row newintro-items">
 			<a href="<?php if(ICL_LANGUAGE_CODE=='de'): ?>
-					/familienurlaub-im-winter-in-zermatt/
+			/familien/
 			<?php elseif(ICL_LANGUAGE_CODE=='en'): ?>
-					/en/family-holiday-in-winter-in-zermatt/
+			/en/family-holiday-in-zermatt/ 
 			<?php elseif(ICL_LANGUAGE_CODE=='fr'): ?>
-					/fr/vacances-en-famille-en-hiver-a-zermatt/
-			<?php endif; ?>"><div class="col-12 col-sm-6 col-lg-3 intro-a-blocks" style="background-image:url('/wp-content/uploads/2021/11/familie-ambassador-s.jpg');"><span>
+			/fr/vacances-en-famille-a-zermatt/ 
+			<?php endif; ?>"><div class="col-md-3 intro-a-blocks" style="background-image:url('/wp-content/uploads/2021/07/familien.jpg ');"><span>
 			<?php if(ICL_LANGUAGE_CODE=='de'): ?>
-			Familienurlaub im Winter
+			Familien
 			<?php elseif(ICL_LANGUAGE_CODE=='en'): ?>
-					Family holiday in winter
+			Families
 			<?php elseif(ICL_LANGUAGE_CODE=='fr'): ?>
-					Vacances en famille en hiver
+			Familles
+			<?php endif; ?>										        
+			</span></div></a>
+
+			<a href="<?php if(ICL_LANGUAGE_CODE=='de'): ?>
+			/aktivurlaub/
+			<?php elseif(ICL_LANGUAGE_CODE=='en'): ?>
+			/en/active-holiday-in-zermatt/ 
+			<?php elseif(ICL_LANGUAGE_CODE=='fr'): ?>
+			/fr/vacances-actives-a-zermatt/ 
+			<?php endif; ?>"><div class="col-md-3 intro-a-blocks" style="background-image:url('/wp-content/uploads/2021/07/aktive.jpg ');"><span>
+			<?php if(ICL_LANGUAGE_CODE=='de'): ?>
+			Aktive
+			<?php elseif(ICL_LANGUAGE_CODE=='en'): ?>
+			Active
+			<?php elseif(ICL_LANGUAGE_CODE=='fr'): ?>
+			Actif
 			<?php endif; ?>
 			</span></div></a>
 
 			<a href="<?php if(ICL_LANGUAGE_CODE=='de'): ?>
-					/winteraktivitaeten/
+			/mountainbiken-in-zermatt/
 			<?php elseif(ICL_LANGUAGE_CODE=='en'): ?>
-					/en/winter-activities/
+			/en/mountainbiking-in-zermatt/ 
 			<?php elseif(ICL_LANGUAGE_CODE=='fr'): ?>
-					/fr/activites-dhiver/
-			<?php endif; ?>"><div class="col-12 col-sm-6 col-lg-3 intro-a-blocks" style="background-image:url('/wp-content/uploads/2021/11/aktiv-ambassador-s.jpg');"><span>
+			/fr/vtt-a-zermatt/ 
+			<?php endif; ?>"><div class="col-md-3 intro-a-blocks" style="background-image:url('/wp-content/uploads/2021/07/mountainbike.jpg ');"><span>
 			<?php if(ICL_LANGUAGE_CODE=='de'): ?>
-			Winteraktivitäten
+			Mountainbike
 			<?php elseif(ICL_LANGUAGE_CODE=='en'): ?>
-					Winter activities
+			Mountainbike
 			<?php elseif(ICL_LANGUAGE_CODE=='fr'): ?>
-					Activités d'hiver
+			VTT
 			<?php endif; ?>
 			</span></div></a>
 
 			<a href="<?php if(ICL_LANGUAGE_CODE=='de'): ?>
-					/ski-snowboard-in-zermatt/
+			/wandern-in-zermatt/
 			<?php elseif(ICL_LANGUAGE_CODE=='en'): ?>
-					/en/ski-snowboard-in-zermatt/
+			/en/hiking-in-zermatt/ 
 			<?php elseif(ICL_LANGUAGE_CODE=='fr'): ?>
-					/fr/ski-et-snowboard-a-zermatt/
-			<?php endif; ?>"><div class="col-12 col-sm-6 col-lg-3 intro-a-blocks" style="background-image:url('/wp-content/uploads/2021/11/ski-ambassador-s.jpg');"><span>
+			/fr/randonnee-a-zermatt/ 
+			<?php endif; ?>"><div class="col-md-3 intro-a-blocks" style="background-image:url('/wp-content/uploads/2021/07/wandern.jpg ');"><span>
 			<?php if(ICL_LANGUAGE_CODE=='de'): ?>
-					Ski & Snowboard
+			Wandern
 			<?php elseif(ICL_LANGUAGE_CODE=='en'): ?>
-					Ski & Snowboard
+			Hiking
 			<?php elseif(ICL_LANGUAGE_CODE=='fr'): ?>
-					Ski et snowboard
+			Randonnée
 			<?php endif; ?>
-			</span></div></a>
 
-			<a href="<?php if(ICL_LANGUAGE_CODE=='de'): ?>
-					/winterwandern-in-zermatt/
-			<?php elseif(ICL_LANGUAGE_CODE=='en'): ?>
-					/en/winter-hiking-in-zermatt/
-			<?php elseif(ICL_LANGUAGE_CODE=='fr'): ?>
-					/fr/randonnee-hivernale-a-zermatt/
-			<?php endif; ?>"><div class="col-12 col-sm-6 col-lg-3 intro-a-blocks" style="background-image:url('/wp-content/uploads/2021/11/winterwandern-s.jpg');"><span>
-			<?php if(ICL_LANGUAGE_CODE=='de'): ?>
-					Winterwandern
-			<?php elseif(ICL_LANGUAGE_CODE=='en'): ?>
-					Winter hiking
-			<?php elseif(ICL_LANGUAGE_CODE=='fr'): ?>
-					Randonnée hivernale
-			<?php endif; ?>
 			</span></div></a>
 		</div>
 	</div>

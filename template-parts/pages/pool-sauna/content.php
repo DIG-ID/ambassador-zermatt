@@ -11,6 +11,7 @@
 					<div class="col-12 col-sm-12 col-md-12 col-lg-10 block-card-wrapper">
 						<div class="row justify-content-start">
 						<?php
+							$choice_value = get_field( 'blocks_gallery_image' );
 							if ( 'gallery' === $choice_value ) :
 								?>
 								<div class="col-12 col-md-6 col-lg-6 col-xl-6 block-gallery block-gallery-<?php echo esc_attr( $counter ); ?> swiper">
