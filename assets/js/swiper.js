@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 
 		//Page Gastronomie
-		if (document.body.classList.contains("page-template-page-gastgronomie")) {
+		if (document.body.classList.contains("page-template-page-gastronomie")) {
 			var blockSwiper = new Swiper(".block-gallery-0", {
 				loop: true,
 				speed: 800,
