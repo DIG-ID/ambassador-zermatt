@@ -960,6 +960,12 @@ body.home header {
 	height: 50px;
 }
 
+@media ( max-width: 768px ) {
+	.img_text_block .link-collector {
+		height: initial;
+	}
+}
+
 .link-collector a {
 	transition: .3s all ease-in-out;
 	transform: scale(1.00000001);
